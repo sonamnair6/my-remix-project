@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "recipient",
+						"type": "address"
+					}
+				],
+				"name": "transfer",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/transfer.sol": "Transfer"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/transfer.sol": {
+			"keccak256": "0x464e80d561a1b45c281ea168c1acd2261d629e2f948e7731a866612b4ffc1478",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://83f22e89619dce4220daf913bcffd59f86c2008ccb9edf05949c3d2b169324ca",
+				"dweb:/ipfs/QmQT6AMwzMTnLhBzbk4XbnrejtRMBGJG71o3AseyjeJNHE"
+			]
+		}
+	},
+	"version": 1
+}

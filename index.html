@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Kava Contract Marketplace</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <h1>Welcome to the Kava Contract Marketplace</h1>
+    <nav>
+        <a href="buyer.html">Buyer</a>
+        <a href="seller.html">Seller</a>
+        <a href="middleman.html">Middleman</a>
+    </nav>
+    <div id="content">
+        <p>Select a role to continue.</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="scripts/contract.js"></script>
+    <script src="app.js"></script>
+
+    <!-- Form to record planting -->
+    <form id="plantingForm">
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required><br><br>
+        <label for="variety">Variety:</label>
+        <input type="text" id="variety" name="variety" required><br><br>
+        <button type="submit">Record Planting</button>
+    </form>
+
+    <script>
+        document.getElementById('plantingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const location = document.getElementById('location').value;
+            const variety = document.getElementById('variety').value;
+            recordPlanting(location, variety);
+        });
+    </script>
+</body>
+ <main>
+        <h2>Welcome to the Kava Marketplace</h2>
+        <p>Connecting farmers, middlemen, and buyers on the blockchain.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Kava Marketplace</p>
+    </footer>
+</html>
