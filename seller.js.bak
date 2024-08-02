@@ -1,0 +1,61 @@
+async function loginWithMetaMask() {
+    if (typeof window.ethereum !== 'undefined') {
+        try {
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const account = accounts[0];
+            alert(`Logged in with MetaMask account: ${account}`);
+            document.getElementById('seller-form').style.display = 'block';
+        } catch (error) {
+            console.error(error);
+            alert('MetaMask login failed. Please try again.');
+        }
+    } else {
+        alert('MetaMask is not installed. Please install it to log in.');
+    }
+}
+
+async function addProduct() {
+    const productName = document.getElementById('productName').value;
+    const priceInEth = document.getElementById('priceInEth').value;
+    const quantity = document.getElementById('quantity').value;
+    const image = document.getElementById('image').files[0];
+
+    // Convert image to base64
+    const reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.onload = async () => {
+        const imageBase64 = reader.result;
+
+        // Call smart contract function to add product
+        const contractAddress = 'YOUR_CONTRACT_ADDRESS';
+        const contractABI = [ /* Add your contract ABI here */ ];
+
+        if (typeof window.ethereum !== 'undefined') {
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+            const contract = new ethers.Contract(contractAddress, contractABI, signer);
+
+            try {
+                const tx = await contract.addToCart(productName, ethers.utils.parseUnits(priceInEth, 'ether'), quantity);
+                await tx.wait();
+                alert('Product added successfully!');
+
+                // Update the products page (assuming it fetches products from the contract)
+                // This might involve refreshing the products page or calling a function to fetch the updated list
+                updateProductsPage(productName, priceInEth, quantity, imageBase64);
+            } catch (error) {
+                console.error(error);
+                alert('Failed to add product. Please try again.');
+            }
+        } else {
+            alert('MetaMask is not installed. Please install it to log in.');
+        }
+    };
+}
+
+function updateProductsPage(productName, priceInEth, quantity, imageBase64) {
+    // Logic to update the products page
+    // This might involve making an AJAX request to the server or updating the DOM directly
+    // For simplicity, we'll just log the new product details
+    console.log('New Product:', { productName, priceInEth, quantity, imageBase64 });
+}

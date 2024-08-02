@@ -1,0 +1,99 @@
+let web3;
+let account;
+const contractAddress = 'YOUR_SMART_CONTRACT_ADDRESS';
+const contractABI = [/* Your contract ABI here */];
+let contract;
+
+async function connectWallet() {
+    if (window.ethereum) {
+        web3 = new Web3(window.ethereum);
+        try {
+            await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const accounts = await web3.eth.getAccounts();
+            account = accounts[0];
+            contract = new web3.eth.Contract(contractABI, contractAddress);
+            alert('Wallet connected successfully');
+        } catch (error) {
+            alert('Failed to connect wallet');
+        }
+    } else {
+        alert('Please install MetaMask!');
+    }
+}
+
+async function addToCart(productName, priceInEth) {
+    const quantity = document.getElementById('quantity').value;
+    if (!account) {
+        alert('Please connect your wallet first');
+        return;
+    }
+    
+    try {
+        await contract.methods.addToCart(productName, priceInEth, quantity).send({ from: account });
+        alert('Product added to cart successfully');
+    } catch (error) {
+        alert('Failed to add product to cart');
+    }
+}
+// JavaScript for handling login popup and MetaMask integration
+
+function openPopup() {
+    document.getElementById('loginPopup').style.display = 'block';
+}
+
+function closePopup() {
+    document.getElementById('loginPopup').style.display = 'none';
+}
+
+async function loginWithMetaMask() {
+    if (typeof window.ethereum !== 'undefined') {
+        try {
+            // Request account access if needed
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const account = accounts[0];
+            alert(`Logged in with MetaMask account: ${account}`);
+            closePopup();
+            // Save the account to local storage or session for later use
+            localStorage.setItem('metamaskAccount', account);
+        } catch (error) {
+            console.error(error);
+            alert('MetaMask login failed. Please try again.');
+        }
+    } else {
+        alert('MetaMask is not installed. Please install it to log in.');
+    }
+}
+
+// Check if the user is already logged in with MetaMask
+window.onload = function() {
+    const savedAccount = localStorage.getItem('metamaskAccount');
+    if (savedAccount) {
+        alert(`Welcome back, MetaMask account: ${savedAccount}`);
+    }
+};
+
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+function updateQuantity(amount) {
+    const quantityInput = document.getElementById('quantity');
+    let currentQuantity = parseInt(quantityInput.value);
+    currentQuantity += amount;
+    if (currentQuantity < 1) currentQuantity = 1;
+    quantityInput.value = currentQuantity;
+}
+
+window.onload = () => {
+    connectWallet();
+};

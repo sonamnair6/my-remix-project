@@ -1,0 +1,39 @@
+async function fetchProducts() {
+    const contractAddress = 'YOUR_CONTRACT_ADDRESS';
+    const contractABI = [ /* Add your contract ABI here */ ];
+
+    if (typeof window.ethereum !== 'undefined') {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const contract = new ethers.Contract(contractAddress, contractABI, provider);
+
+        try {
+            const products = await contract.getCart();
+            displayProducts(products);
+        } catch (error) {
+            console.error(error);
+            alert('Failed to fetch products. Please try again.');
+        }
+    } else {
+        alert('MetaMask is not installed. Please install it to log in.');
+    }
+}
+
+function displayProducts(products) {
+    const productsContainer = document.getElementById('products-container');
+    productsContainer.innerHTML = ''; // Clear existing products
+
+    products.forEach(product => {
+        const productElement = document.createElement('div');
+        productElement.className = 'product';
+        productElement.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>Price: ${ethers.utils.formatUnits(product.priceInEth, 'ether')} ETH</p>
+            <p>Quantity: ${product.quantity}</p>
+            <button onclick="addToCart('${product.name}', ${product.priceInEth}, ${product.quantity})">Add to Cart</button>
+        `;
+        productsContainer.appendChild(productElement);
+    });
+}
+
+window.onload = fetchProducts;

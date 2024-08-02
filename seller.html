@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="seller.html">Seller Login</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Seller Login</h1>
+        <button onclick="loginWithMetaMask()">Login with MetaMask</button>
+        <div id="seller-form" style="display:none;">
+            <h2>Add Product</h2>
+            <form id="productForm">
+                <fieldset>
+                    <legend>Product Details</legend>
+                    <label for="productName">Product Name:</label>
+                    <input type="text" id="productName" name="productName" required><br>
+                    <label for="priceInEth">Price (ETH):</label>
+                    <input type="number" step="0.01" id="priceInEth" name="priceInEth" required><br>
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" required><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Planting Details</legend>
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" required><br>
+                    <label for="variety">Variety:</label>
+                    <input type="text" id="variety" name="variety" required><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Pest Control Details</legend>
+                    <label for="pestLocation">Location:</label>
+                    <input type="text" id="pestLocation" name="pestLocation" required><br>
+                    <label for="pestType">Pest Type:</label>
+                    <input type="text" id="pestType" name="pestType" required><br>
+                    <label for="pestMethod">Method:</label>
+                    <input type="text" id="pestMethod" name="pestMethod" required><br>
+                    <label for="pestCost">Cost:</label>
+                    <input type="number" id="pestCost" name="pestCost" required><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Growth Issue Details</legend>
+                    <label for="issueLocation">Location:</label>
+                    <input type="text" id="issueLocation" name="issueLocation" required><br>
+                    <label for="issueType">Issue Type:</label>
+                    <input type="text" id="issueType" name="issueType" required><br>
+                    <label for="issueAction">Action Taken:</label>
+                    <input type="text" id="issueAction" name="issueAction" required><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Harvest Details</legend>
+                    <label for="harvestLocation">Location:</label>
+                    <input type="text" id="harvestLocation" name="harvestLocation" required><br>
+                    <label for="harvestVariety">Variety:</label>
+                    <input type="text" id="harvestVariety" name="harvestVariety" required><br>
+                    <label for="harvestAmount">Amount:</label>
+                    <input type="number" id="harvestAmount" name="harvestAmount" required><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Sale Details</legend>
+                    <label for="saleAmount">Amount:</label>
+                    <input type="number" id="saleAmount" name="saleAmount" required><br>
+                    <label for="salePrice">Price:</label>
+                    <input type="number" id="salePrice" name="salePrice" required><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Image Upload</legend>
+                    <label for="image">Product Image:</label>
+                    <input type="file" id="image" name="image" accept="image/*" required><br>
+                </fieldset>
+                <button type="button" onclick="addProduct()">Add Product</button>
+                <p id="error-message" style="color:red;"></p>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Fiji Kava. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.0.31/dist/ethers.min.js"></script>
+    <script src="seller.js"></script>
+</body>
+</html>
