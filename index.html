@@ -1,49 +1,158 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Kava Contract Marketplace</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <title>Fiji Kava - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 </head>
 <body>
-    <h1>Welcome to the Kava Contract Marketplace</h1>
-    <nav>
-        <a href="buyer.html">Buyer</a>
-        <a href="seller.html">Seller</a>
-        <a href="middleman.html">Middleman</a>
-    </nav>
-    <div id="content">
-        <p>Select a role to continue.</p>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="scripts/contract.js"></script>
-    <script src="app.js"></script>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Fiji Kava Logo">
+        </div>
+        <h1>Fiji Kava</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="#" onclick="openPopup()">Account</a>
+            <a href="cart.html">Cart</a>
+            <a href="seller-login.html">Seller Login</a>
+        </nav>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-content">
+                <h2>Discover the Benefits of Kava</h2>
+                <p>Experience relaxation and wellness with our premium Kava products.</p>
+                <button onclick="location.href='products.html'">Shop Now</button>
+            </div>
+        </section>
 
-    <!-- Form to record planting -->
-    <form id="plantingForm">
-        <label for="location">Location:</label>
-        <input type="text" id="location" name="location" required><br><br>
-        <label for="variety">Variety:</label>
-        <input type="text" id="variety" name="variety" required><br><br>
-        <button type="submit">Record Planting</button>
-    </form>
+        <!-- Overview Section -->
+        <section id="overview">
+            <h2>Why Choose Fiji Kava?</h2>
+            <div class="benefits">
+                <div class="benefit">
+                    <img src="Screenshot1.png" alt="Benefit 1">
+                    <h3>Premium Quality</h3>
+                    <p>Our Kava is sourced from the best farms ensuring top-notch quality.</p>
+                </div>
+                <div class="benefit">
+                    <img src="Screenshot2.png" alt="Benefit 2">
+                    <h3>Relaxation</h3>
+                    <p>Enjoy the calming effects of our specially prepared Kava products.</p>
+                </div>
+                <div class="benefit">
+                    <img src="Screenshot3.png" alt="Benefit 3">
+                    <h3>Wellness</h3>
+                    <p>Enhance your well-being with our organic and natural Kava.</p>
+                </div>
+            </div>
+        </section>
 
-    <script>
-        document.getElementById('plantingForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const location = document.getElementById('location').value;
-            const variety = document.getElementById('variety').value;
-            recordPlanting(location, variety);
-        });
-    </script>
-</body>
- <main>
-        <h2>Welcome to the Kava Marketplace</h2>
-        <p>Connecting farmers, middlemen, and buyers on the blockchain.</p>
+        <!-- Products Section -->
+        <section id="products">
+            <h2>Our Products</h2>
+            <div class="product-slider">
+                <div class="product" onclick="handleProductClick('product1')">
+                    <img src="image2.jpg" alt="Product 1">
+                    <h3>Kava Powder</h3>
+                    <p>$25.00</p>
+                </div>
+                <div class="product" onclick="handleProductClick('product2')">
+                    <img src="image1.jpg" alt="Product 2">
+                    <h3>Kava Extract</h3>
+                    <p>$30.00</p>
+                </div>
+                <div class="product" onclick="handleProductClick('product3')">
+                    <img src="image3.jpg" alt="Product 3">
+                    <h3>Kava Capsules</h3>
+                    <p>$35.00</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-container">
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea><br>
+                    <button type="submit">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <h3>Our Location</h3>
+                    <div id="map"></div>
+                    <h3>Opening Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    <p>Saturday: 10:00 AM - 4:00 PM</p>
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+1234567890">+1234567890</a></p>
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chatbot -->
+        <div id="chatbot">
+            <button id="chatbot-button">Chat with us!</button>
+            <div id="chatbot-window">
+                <div id="chatbot-messages"></div>
+                <input type="text" id="chatbot-input" placeholder="Type your message here...">
+            </div>
+        </div>
     </main>
     <footer>
-        <p>&copy; 2024 Kava Marketplace</p>
+        <p>&copy; 2024 Fiji Kava. All rights reserved.</p>
     </footer>
+
+    <!-- Login Popup -->
+    <div id="loginPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <button type="button" onclick="loginWithMetaMask()">Sign In with MetaMask</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        function initMap() {
+            var location = {lat: -17.584279, lng: 177.436020};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+        window.onload = initMap;
+    </script>
+</body>
 </html>
