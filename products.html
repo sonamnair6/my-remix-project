@@ -3,100 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiji Kava - Product Details</title>
-    <link rel="stylesheet" href="prostyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="seller.css">
+    <title>Products</title>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="Fiji Kava Logo">
-        </div>
-        <h1>Fiji Kava</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="products.html">Shop</a>
-            <a href="#" onclick="openPopup()">Account</a>
-            <a href="products.html">Cart</a>
-            <a href="seller.html">Seller Login</a>
-        </nav>
-    </header>
-    <main>
-        <section id="product-detail">
-            <div class="product-image">
-                <img src="product1.jpg" alt="FijiKava Noble Kava 60mg Vegan 120 Capsules">
-                <div class="product-thumbnails">
-                    <img src="product3.jpg" alt="Thumbnail 1">
-                    <img src="product3back.jpg" alt="Thumbnail 2">
-                    <img src="product3infor.jpg" alt="Thumbnail 3">
-                    <img src="pic1.jpg" alt="Thumbnail 4">
-                </div>
-            </div>
-            <div class="product-info">
-                <h2>FijiKava Noble Kava 200g</h2>
-                <p>$44.99 | <span id="product-price-eth">0.02 ETH</span></p>
-                <div class="quantity">
-                    <label for="quantity">Quantity:</label>
-                    <button onclick="updateQuantity(-1)">-</button>
-                    <input type="number" id="quantity" value="1" min="1">
-                    <button onclick="updateQuantity(1)">+</button>
-                </div>
-                <button class="add-to-cart" onclick="addToCart('FijiKava Noble Kava 200g', 0.02)">Add to Cart</button>
-                <p>Shipping calculated at checkout.</p>
-                <div class="tabs">
-                    <button class="tablink" onclick="openTab(event, 'Description')">Description</button>
-                    <button class="tablink" onclick="openTab(event, 'Ingredients')">Ingredients</button>
-                    <button class="tablink" onclick="openTab(event, 'Directions')">Directions</button>
-                    <button class="tablink" onclick="openTab(event, 'Reviews')">Reviews</button>
-                </div>
-                <div id="Description" class="tabcontent">
-                    <p>The medicinal benefits of Noble Kava have been traditionally used in Pacific Islander and Western herbal medicine...</p>
-                </div>
-                <div id="Ingredients" class="tabcontent">
-                    <p>100% Noble Kava Root...</p>
-                </div>
-                <div id="Directions" class="tabcontent">
-                    <p>Take 2-4 easy to swallow, 100% Vegan friendly kava pills daily with food...</p>
-                </div>
-                <div id="Reviews" class="tabcontent">
-                    <p>No reviews yet.</p>
-                </div>
-            </div>
-        </section>
-        <section id="related-products">
-            <h2>You May Also Like</h2>
-            <div class="related-product">
-                <img src="product2.jpg" alt="Related Product 1">
-                <h3>100% Noble Kava Root Powder</h3>
-                <p>From $35.00</p>
-            </div>
-            <div class="related-product">
-                <img src="product3.jpg" alt="Related Product 2">
-                <h3>FijiKava Noble Kava 60mg dietary supplement</h3>
-                <p>$24.99</p>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Fiji Kava. All rights reserved.</p>
-    </footer>
-
-    <!-- Login Popup -->
-    <div id="loginPopup" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closePopup()">&times;</span>
-            <h2>Login</h2>
-            <form id="loginForm">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-                <button type="button" onclick="loginWithMetaMask()">Sign In with MetaMask</button>
-            </form>
-        </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="proapp.js"></script>
+    <h1>Products</h1>
+    <div id="products"></div>
+    <button id="connectWallet">Connect MetaMask</button>
+    <div id="cart"></div>
+    <button id="purchase">Purchase</button>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="product.js"></script>
 </body>
 </html>
