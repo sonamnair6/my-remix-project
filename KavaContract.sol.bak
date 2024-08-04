@@ -12,21 +12,6 @@ contract KavaContract is Ownable {
         string variety;
         uint256 timestamp;
     }
-    struct Product {
-        string name;
-        uint256 priceInEth;
-        uint256 quantity;
-    }
-
-    mapping(address => Product[]) public cart;
-
-    function addToCart(string memory productName, uint256 priceInEth, uint256 quantity) public {
-        cart[msg.sender].push(Product(productName, priceInEth, quantity));
-    }
-
-    function getCart() public view returns (Product[] memory) {
-        return cart[msg.sender];
-    }
 
     struct PestControl {
         string location;

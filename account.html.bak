@@ -3,25 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kava Products</title>
-    <link rel="stylesheet" href="prostyle.css">
+    <title>Account</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="product.js" defer></script>
+    <script src="app.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Products</h1>
+        <h1>Account</h1>
         <nav>
             <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
             <a href="seller.html">Seller</a>
-            <a href="account.html">Account</a>
             <a href="cart.html">Cart</a>
         </nav>
     </header>
     <main>
-        <div id="product-list">
-            <!-- Product list will be populated here -->
-        </div>
+        <p>Account details and MetaMask connection status will be displayed here.</p>
     </main>
 </body>
 </html>

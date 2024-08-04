@@ -1,33 +1,18 @@
-/* Seller Form Styles */
-#seller-form {
-    margin-top: 20px;
+/* seller.css */
+body {
+    font-family: Arial, sans-serif;
 }
 
-#seller-form form {
-    display: flex;
-    flex-direction: column;
+h1 {
+    text-align: center;
 }
 
-#seller-form form label,
-#seller-form form input,
-#seller-form form button {
-    margin-bottom: 10px;
+#products, #cart {
+    margin: 20px;
 }
 
-#seller-form form button {
-    width: 100px;
+div {
+    border: 1px solid #ddd;
     padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-#seller-form form button:hover {
-    background-color: #0056b3;
-}
-
-/* Error Message Styles */
-#error-message {
-    color: red;
+    margin: 10px;
 }

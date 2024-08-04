@@ -1,18 +1,58 @@
-/* seller.css */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
 }
 
-h1 {
+header {
+    background-color: #17a2b8;
+    color: white;
+    padding: 10px 0;
     text-align: center;
 }
 
-#products, #cart {
-    margin: 20px;
+header h1 {
+    margin: 0;
 }
 
-div {
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+form {
+    background-color: white;
+    padding: 20px;
     border: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input {
+    width: 100%;
     padding: 10px;
-    margin: 10px;
+    margin: 5px 0 10px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #138496;
 }
