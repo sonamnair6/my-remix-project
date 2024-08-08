@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kava Products</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prostyle.css">
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script src="product.js" defer></script>
 </head>
@@ -23,5 +23,8 @@
             <!-- Product list will be populated here -->
         </div>
     </main>
+
+    <!-- Ensure 'app.js' does not depend on 'product.js' or adjust script loading order as needed -->
+    <script src="app.js" defer></script>
 </body>
 </html>

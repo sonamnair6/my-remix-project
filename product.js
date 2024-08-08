@@ -17,15 +17,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function fetchProductsFromBlockchain() {
-  // Fetch products from your smart contract
-  // Placeholder implementation
-  return [
-    { name: 'Kava Root', priceInEth: 0.1, quantity: 10 },
-    { name: 'Kava Powder', priceInEth: 0.05, quantity: 20 },
-  ];
+  // Fetch products from your smart contract using the method from app.js
+  return window.getProducts(); // Call a function from 'app.js' to get products
 }
 
-function addToCart(name, price, quantity) {
-  // Add product to cart
-  console.log(`Added ${name} to cart`);
-}
+window.addToCart = async function(name, priceInEth, quantity) {
+  console.log(`Adding ${name} to cart`);
+  try {
+    await window.addToCartToBlockchain(name, priceInEth, quantity);
+  } catch (error) {
+    console.error('Failed to add to cart:', error);
+  }
+};

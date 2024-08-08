@@ -12,8 +12,21 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "mongoose": "^8.5.1"
+    "mongoose": "^8.5.1",
+    "web3": "^4.11.1"
   },
-  "description": ""
+  "description": "REMIX DEFAULT WORKSPACE",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonamnair6/my-remix-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sonamnair6/my-remix-project/issues"
+  },
+  "homepage": "https://github.com/sonamnair6/my-remix-project#readme"
 }
